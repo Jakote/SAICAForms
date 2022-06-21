@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
 ]
 
 MIDDLEWARE = [
@@ -75,7 +76,20 @@ WSGI_APPLICATION = 'saicaform.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+# Production server
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'mssql',
+#         'NAME': "SAICAFormsDB",
+#         "USER": "Jakote",
+#         "PASSWORD": "toom9Toom99",
+#         "HOST": "saicastudent.database.windows.net",
+#         "PORT": "1433",
+#         "OPTIONS": {'DRIVER': 'SQL Server Native Client 11.0', },
+#     }
+# }
 
+#local server
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
@@ -88,7 +102,6 @@ DATABASES = {
         },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

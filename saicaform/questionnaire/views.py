@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
+
 # Create your views here.
 
 def index(request):
@@ -15,7 +16,7 @@ def questionnaire(request):
     matricSubjects = Matricsubjects.objects.all()
     postGradQualifications = Postgradqualifications.objects.all()
     postGradUniverisities= Postgraduniversities.objects.all()
-    questions = Questions.objects.all()
+    questions = Questions.objects.all().order_by('id').values()
     trainingElectives = Trainingelectives.objects.all()
     undergradQualifications = Undergradqualifications.objects.all()
     undergradUniversities = Undergraduniversities.objects.all()
@@ -27,6 +28,7 @@ def questionnaire(request):
     "postGradUniverisities":postGradUniverisities,
     "questions":questions,"trainingElectives":trainingElectives, 
     "undergradQualifications":undergradQualifications,
-    "undergradUniversities":undergradUniversities }
+    "undergradUniversities":undergradUniversities,
+    "questions":questions}
 
     return render(request, 'QuestionnaireP2.html', context)

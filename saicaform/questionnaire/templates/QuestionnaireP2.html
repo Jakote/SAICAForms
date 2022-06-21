@@ -161,6 +161,14 @@
                     us.
                 </p>
 
+                <select id="lan">
+                    <option value="en" selected>English</option>
+                    <option value="es">Español</option>
+                    <option value="pt">Português</option>
+                </select>
+               {% for ques in questions %}
+               <p><span class="question-no">{{ques.id}} </span>{{ ques.question|linebreaks }}</p>
+               {% endfor %}
                
                 <p>Language Drop down</p>
                 <select class="text-box" >
@@ -252,6 +260,9 @@
 
     </div>
     </div>
+    <script>
+    
+    </script>
 </body>
 
 </html>

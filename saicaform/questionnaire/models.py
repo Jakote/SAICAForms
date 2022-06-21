@@ -319,10 +319,21 @@ class Postgraduniversities(models.Model):
 
 class Questions(models.Model):
     #questionid = models.AutoField(db_column='QuestionId')  # Field name made lowercase.
+    CHOICES = (
+        ('Checkbox', 'Checkbox'),
+        ('ShortAns', 'ShortAnswer'),
+        ('LongAns', 'LongerAnswer'),
+        ('DropDown', 'DropDownList'),
+        ('Likert','Likert'),
+        ('Rate', 'Rate'),
+        ('Date','Date')
+    )
+    question_type = models.CharField(max_length=300, choices = CHOICES)
     question = models.CharField(db_column='Question', max_length=500, db_collation='SQL_Latin1_General_CP1_CI_AS')  # Field name made lowercase.
+    
 
     class Meta:
-        managed = False
+        #managed = False
         db_table = 'Questions'
         verbose_name = 'Question'
         verbose_name_plural = 'Questions'
